@@ -1,0 +1,13 @@
+jQuery.fn.animateBorder = function(options) {
+	var defaults = {
+			borderClass: 'animated-border'
+		},
+		current_item = jQuery(this);
+	
+	jQuery.extend(defaults, options);
+	current_item.css('border-bottom', 'none');
+
+	if ((!current_item.next('.' + defaults.borderClass).length) && (!current_item.hasClass('open-search')) && (!current_item.parent().parent().closest('li').hasClass('rstpl-mega-menu'))) {
+		current_item.after('<span class="' + defaults.borderClass + '"></span>');
+	}
+}
